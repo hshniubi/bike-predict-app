@@ -46,5 +46,7 @@ input_df = pd.DataFrame([{
 
 # 预测
 if st.button("Predict"):
-    prediction = model.predict(input_df)[0]
+input_df = input_df.astype(float).reindex(columns=model.feature_names_in_)
+prediction = model.predict(input_df)[0]
+
     st.success(f"Predicted bike rental count: {int(prediction)}")
