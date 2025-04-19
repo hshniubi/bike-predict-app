@@ -43,10 +43,7 @@ input_df = pd.DataFrame([{
     "Weekday": weekday,
     "Month": month
 }])
-
-# 预测
 if st.button("Predict"):
-input_df = input_df.astype(float).reindex(columns=model.feature_names_in_)
-prediction = model.predict(input_df)[0]
-
-st.success(f"Predicted bike rental count: {int(prediction)}")
+    input_df = input_df.astype(float).reindex(columns=model.feature_names_in_)
+    prediction = model.predict(input_df)[0]
+    st.success(f"Predicted bike rental count: {int(prediction)}")
